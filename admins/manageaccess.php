@@ -22,100 +22,77 @@ if(!isset($_SESSION["username"])){
                 <div class="col-md-9 ml-auto details fixed-top " style=" height: 100%">
 
 
-                    <div class="container pre-scrollable col-lg-12">
-                        <div class=" mx-0 h-50">
+                    <div class="container col-lg-12">
+                        <div class="mt-5">
 
-                            <table class="table table-hover table-striped ">
+                            <table class="table table-hover table-bordered ">
                                 <thead class="thead-dark  ">
                                 <tr>
 
                                     <th>ID</th>
                                     <th>Username</th>
                                     <th>Email</th>
-                                    <th>Password</th>
+                                    <th>status</th>
                                     <th>control</th>
+
 
                                 </tr>
                                 </thead>
                                 <?php
 
                                 $fetched = $dbcon->fetchdata("sign");
-                                foreach ($fetched as $row) {
+                                foreach ($fetched as $row){
                                     $id = $row[0];
-                                    echo "<tr>
-      
-                    
-                     <td>$row[0]</td>
-                     <td>$row[1]</td>
-                     <td>$row[2]</td>
-                     <td>$row[3]</td>
-                      <td><a href='deleteaccess.php?id={$id};'> <button class='btn-sm btn-danger mr-3' name='id'>delete</button></a>
-                       <a href='approve.php?id={$id};'> <button class='btn-sm btn-danger mr-4' name='id'>approve</button></a>
+
+                                ?>
+
+                                <tr>
+
+                     <td><?php echo $row[0]?></td>
+                     <td><?php echo $row[1]?></td>
+                     <td><?php echo $row[2]?></td>
+
+
+                     <td>
+                         <?php
+                         if($row[5]=="false"){
+                             echo"Not approved";
+                         }else{
+                             echo"Approved";
+                         }
+                         ?>
+
+                     </td>
+                      <td><a href="deleteaccess.php?id=<?php echo $id;?>>"> <button class='btn-sm btn-danger mr-3' name='id'>delete</button></a>
+
+
+                           <?php if($row[5]=="false"){
+                               echo" <a href='approve.php?id={$id};'><button class='btn-sm btn-danger mr-4' name='id'>approve</button> </a>";
+                           }else{
+                               echo" <a href='disapprove.php?id={$id};'><button class='btn-sm btn-danger mr-4' name='id'>disapprove</button> </a>";
+                           }
+
+
+                            ?>
+
+
+
                       
                      
                      
-            </tr>";
-                                }
-                                ?>
+
 
                                 </tr>
+                                <?php } ?>
                             </table>
                         </div>
                     </div>
-                    <hr class="bg-dark">
-                    <button class="btn-danger btn-block"></button>
-                    <hr>
-                    <div class="container pre-scrollable col-lg-12">
-                        <div class=" mx-0 h-50">
-                            <table class="table table-hover table-striped ">
-                                <h2 class="text-center text-capitalize text-info font-italic text-u ">approved accounts</h2>
-                                <thead class="thead-dark  ">
-                                <div><?php echo success(); ?></div>
-                                <tr>
 
-                                    <th>ID</th>
-                                    <th>Username</th>
-                                    <th>Email</th>
-                                    <th>Password</th>
-                                    <th>control</th>
-
-                                </tr>
-                                </thead>
-                                <?php
-
-                                $fetched = $dbcon->fetch_approve("sign");
-                                foreach ($fetched as $row) {
-                                    $id = $row[0];
-                                    echo "<tr>
-      
-                    
-                     <td>$row[0]</td>
-                     <td>$row[1]</td>
-                     <td>$row[2]</td>
-                     <td>$row[3]</td>
-                      <td><a href='deleteaccess.php?id={$id};'> <button class='btn-sm btn-danger mr-3' name='id'>delete</button></a>
-                       <a href='disapprove.php?id={$id};'> <button class='btn-sm btn-danger mr-4' name='id'>disapprove</button></a></td>
-                     
-                     
-            </tr>";
-                                }
-                                ?>
-
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
                 </div>
                 <div>
-                    <footer
-                    <span>
-    <hr><p>Theme by mumo| &copf;&nbsp;2019--2022|----all rights reserved</p>
-
-
-
-</span>
-                </div>
-                </footer>
+                    <footer class="ml-auto fixed-bottom bg-info">
+                        <p class="text-center">Theme by mumo| &copf;&nbsp;2019--2022|----all rights reserved</p>
+                    </footer>
             </div>
 
 

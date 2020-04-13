@@ -5,22 +5,27 @@ require_once("includes/redirect.php");
 ?>
 <html>
 <head>
+
     <script src="../boot/bootstrap/js/jquery-3.3.1.js"></script>
     <link rel="stylesheet" href="../boot/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/adminstyles.css">
+
 </head>
 <body>
 <?php include "navigation/navbar.php"?>
+<style>
+
+</style>
 
 
                 <!--                end of side bar-->
                 <!--                top bar-->
-                <div class="col-md-9 ml-auto details fixed-top " style=" height: 100vh">
+                <div class="col-md-9 ml-auto details fixed-top mt-4" id="main_page" style="overflow: scroll">
 
 
-                    <div class="container pre-scrollable col-lg-12">
+                    <div class="container  col-lg-12">
                         <div class="container mx-0 h-50">
-                            <table class="table table-striped  table-hover">
+                            <table class="table table-bordered  table-hover">
                                 <thead class="thead-dark ">
                                 <tr>
 
@@ -117,17 +122,9 @@ require_once("includes/redirect.php");
                     </div>
                 </div>
 
-                <footer style="margin-left: 50%;color: #ff251e; font-family: 'Lucida Sans Unicode'">
-                    <span>
-    <hr><button class="btn-block"></button><hr>
-
-                        <p>Theme by mumo| &copf;&nbsp;2019--2022|----all rights reserved</p>
-
-
-
-</span>
-            </div>
-            </footer>
+<footer class="ml-auto fixed-bottom bg-info">
+    <p class="text-center">Theme by mumo| &copf;&nbsp;2019--2022|----all rights reserved</p>
+</footer>
         </div>
 
 

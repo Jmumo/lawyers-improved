@@ -25,66 +25,72 @@ if(!isset($_SESSION["username"])){
 <!--                <!--                end of side bar-->-->
                 <!--                top bar-->
                 <div class="col-md-9 ml-auto details fixed-top" style="overflow: scroll; height: 100%">
-                    <form action="admin.news.php" method="post" enctype="multipart/form-data">
-                        <div><?php echo success(); ?></div>
-                        <div>
-                            <h3 class="page-header">manage news</h3>
+                    <div class="col-md-9 ml-auto details fixed-top"  style="overflow: scroll; height: 100%">
+                        <ul class="nav">
+                            <li class="nav-tabs">
+                                <a class="nav-link text-capitalize" href="admin.news.php">add news</a>
+                            </li>
+                            <li class="nav-tabs">
+                                <a class="nav-link text-capitalize" href="Manage_news.php">manage news</a>
+                            </li>
 
-                            <label for="description"><span class="">description</span></label>
+
+                        </ul>
+
+                        <form action="admin.news.php" method="post" enctype="multipart/form-data">
+                        <div><?php echo success(); ?></div>
+                        <div class="mt-4">
+                            <h3 class="page-header text-capitalize">manage news</h3>
+
+                            <label for="description"><span class="text-capitalize">description</span></label>
                             <textarea type="text" class="form-control" id="description" placeholder="enter description"
                                       name="description" rows="5"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="image"><span class="">image</span></label>
+                            <label for="image"><span class="text-capitalize">image</span></label>
                             <input type="file" class="form-control" name="image">
                         </div>
                         <div class="form-group">
-                            <input type="submit" class="btn btn-success" name="submit" value="add news">
+                            <input type="submit" class="btn btn-block btn-success" name="submit" value="add news">
                         </div>
                     </form>
                     <div class="container col-lg-12">
-                        <div class="container pre-scrollable mx-0 h-50">
-                            <div><?php echo success(); ?></div>
-                            <table class="table table-hover table-striped ">
-                                <thead class="thead-dark  ">
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Department</th>
-                                    <th>image</th>
-                                    <th>control</th>
-
-
-                                </tr>
-                                </thead>
-                                <?php
-
-                                $fetched = $dbcon->fetchdata("news");
-                                foreach ($fetched as $row) {
-                                    $id = $row[0];
-                                    echo "<tr>
-      
-                    
-                     <td>$row[0]</td>
-                     <td>$row[1]</td>
-                       <td><img src=\"photos/$row[2]\" class=\"rounded\"><br></td>
-                       <td><a href='admin.newsdelete.php?id={$id};'> <button class='btn-sm btn-danger' name='id'>delete</button></a></td>
-                    
-                     
-            </tr>";
-                                }
-                                ?>
-
-                                </tr>
-                            </table>
+<!--                        <div class="container pre-scrollable mx-0 h-50">-->
+<!--                            <div>--><?php //echo success(); ?><!--</div>-->
+<!--                            <table class="table table-hover table-striped ">-->
+<!--                                <thead class="thead-dark  ">-->
+<!--                                <tr>-->
+<!--                                    <th>ID</th>-->
+<!--                                    <th>Department</th>-->
+<!--                                    <th>image</th>-->
+<!--                                    <th>control</th>-->
+<!---->
+<!---->
+<!--                                </tr>-->
+<!--                                </thead>-->
+<!--                                --><?php
+//
+//                                $fetched = $dbcon->fetchdata("news");
+//                                foreach ($fetched as $row) {
+//                                    $id = $row[0];
+//                                    echo "<tr>
+//
+//
+//                     <td>$row[0]</td>
+//                     <td>$row[1]</td>
+//                       <td><img src=\"photos/$row[2]\" class=\"rounded\"><br></td>
+//                       <td><a href='admin.newsdelete.php?id={$id};'> <button class='btn-sm btn-danger' name='id'>delete</button></a></td>
+//
+//
+//            </tr>";
+//                                }
+//                                ?>
+<!---->
+<!--                                </tr>-->
+<!--                            </table>-->
                         </div>
-                        <footer class="ml-auto">
-                            <div class="container-fluid text-center mt-4">
-<span>
-    <hr><p>Theme by mumo| &copf;&nbsp;2019--2022|----all rights reserved</p>
-
-
-</span>
-                            </div>
+                        <footer class="ml-auto fixed-bottom bg-info">
+                            <p class="text-center">Theme by mumo| &copf;&nbsp;2019--2022|----all rights reserved</p>
                         </footer>
                     </div>
 

@@ -10,7 +10,7 @@ if (isset($_GET["id"])) {
     $exec = $dbcon->admin_delete("workers", $data);
     if (!$exec) {
         $_SESSION["error message"] = "successfully deleted";
-        redirect_to("home.admin.php");
+        redirect_to("Manage_workers.php");
     } else {
         echo "something went wrong";
     }

@@ -9,7 +9,7 @@ if (isset($_GET["id"])) {
     $exec = $dbcon->admin_delete("expertise", $data);
     if (!$exec) {
         $_SESSION["error message"] = "successfully deleted";
-        redirect_to("admin.expertise.php");
+        redirect_to("Manage_expertise.php");
     } else {
         echo "something went wrong";
     }

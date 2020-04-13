@@ -20,13 +20,25 @@ if(!isset($_SESSION["username"])){
                 <!--                end of side bar-->
                 <!--                top bar-->
                 <div class="col-md-9 ml-auto details fixed-top " style="overflow: scroll; height: 100%">
-                    <form action="lawyers.news.php" method="post" enctype="multipart/form-data">
+                    <div class="col-md-9 ml-auto details fixed-top"  style="overflow: scroll; height: 100%">
+                        <ul class="nav">
+                            <li class="nav-tabs">
+                                <a class="nav-link text-capitalize" href="lawyers.news.php">add news</a>
+                            </li>
+                            <li class="nav-tabs">
+                                <a class="nav-link text-capitalize" href="Manage_law_news.php">manage news</a>
+                            </li>
+
+
+                        </ul>
+
+                        <form action="lawyers.news.php" method="post" enctype="multipart/form-data">
                         <div><?php echo success(); ?></div>
                         <div>
-                            <h3 class="page-header">Post to lawyers notice board</h3>
+                            <h3 class="page-header text-capitalize mt-4">Post to lawyers notice board</h3>
 
-                            <label for="description"><span class="">description</span></label>
-                            <textarea type="text" class="form-control" id="description" placeholder="enter description"
+                            <label for="description"><span class="text-capitalize">description</span></label>
+                            <textarea type="text" class="form-control mt-3" id="description" placeholder="enter description"
                                       name="description" rows="5"></textarea>
                         </div>
                         <div class="form-group mt-4">
@@ -56,46 +68,40 @@ if(!isset($_SESSION["username"])){
                     }
                     ?>
                     <div class="container col-lg-12">
-                        <div class="container pre-scrollable mx-0 h-50">
-                            <table class="table table-hover table-striped ">
-                                <thead class="thead-dark  ">
-                                <tr>
-
-                                    <th>ID</th>
-                                    <th>Author</th>
-                                    <th>Message</th>
-                                    <th>Date</th>
-
-                                </tr>
-                                </thead>
-                                <?php
-
-                                $fetched = $dbcon->fetchdata("notice");
-                                foreach ($fetched as $row) {
-                                    echo "<tr>
-      
-                    
-                     <td>$row[0]</td>
-                     <td>$row[1]</td>
-                     <td>$row[2]</td>
-                      <td>$row[3]</td>
-                     
-            </tr>";
-                                }
-                                ?>
-
-                                </tr>
-                            </table>
+<!--                        <div class="container pre-scrollable mx-0 h-50">-->
+<!--                            <table class="table table-hover table-striped ">-->
+<!--                                <thead class="thead-dark  ">-->
+<!--                                <tr>-->
+<!---->
+<!--                                    <th>ID</th>-->
+<!--                                    <th>Author</th>-->
+<!--                                    <th>Message</th>-->
+<!--                                    <th>Date</th>-->
+<!---->
+<!--                                </tr>-->
+<!--                                </thead>-->
+<!--                                --><?php
+//
+//                                $fetched = $dbcon->fetchdata("notice");
+//                                foreach ($fetched as $row) {
+//                                    echo "<tr>
+//
+//
+//                     <td>$row[0]</td>
+//                     <td>$row[1]</td>
+//                     <td>$row[2]</td>
+//                      <td>$row[3]</td>
+//
+//            </tr>";
+//                                }
+//                                ?>
+<!---->
+<!--                                </tr>-->
+<!--                            </table>-->
                         </div>
 
-                        <footer class="ml-auto">
-                            <div class="container-fluid text-center mt-4">
-<span>
-    <hr><p>Theme by mumo| &copf;&nbsp;2019--2022|----all rights reserved</p>
-
-
-</span>
-                            </div>
+                        <footer class="ml-auto fixed-bottom bg-info">
+                            <p class="text-center">Theme by mumo| &copf;&nbsp;2019--2022|----all rights reserved</p>
                         </footer>
                     </div>
 

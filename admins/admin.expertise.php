@@ -20,79 +20,52 @@ if(!isset($_SESSION["username"])){
         height: 80px;
         border: solid 1px black;
     }
+
 </style>
 
 <?php include "navigation/navbar.php"?>
 
 
+
+
                 <!--                end of side bar-->
                 <!--                top bar-->
-                <div class="col-md-9 ml-auto details fixed-top"  style="overflow: scroll; height: 100%">
-                    <form action="admin.expertise.php" method="post" enctype="multipart/form-data">
-                        <div><?php echo success(); ?></div>
-                        <div><?php echo message(); ?></div>
-                        <div>
-                            <h3 class="page-header">Manage expertise</h3>
 
-                            <label for="department"><span class="">department</span></label>
-                            <input type="text" class="form-control" id="department" placeholder="enter department"
+                <div class="col-md-9 ml-auto details fixed-top"  style="overflow-y scroll:; height: 100%">
+                    <ul class="nav">
+                        <li class="nav-tabs">
+                            <a class="nav-link text-capitalize" href="admin.expertise.php">add</a>
+                        </li>
+                        <li class="nav-tabs">
+                            <a class="nav-link text-capitalize" href="Manage_expertise.php">manage</a>
+                        </li>
+
+
+                    </ul>
+                    <form action="admin.expertise.php" method="post" enctype="multipart/form-data">
+
+
+                        <h3 class="page-header mt-lg-3">Add expertise</h3>
+
+                        <div class="form-group mt-4">
+                            <label for="department"><span class="mb-3 text-capitalize">department</span></label>
+                            <input type="text" class="form-control mt-2" id="department" placeholder="enter department"
                                    name="department">
                         </div>
-                        <div class="form-group">
-                            <label for="image"><span class="">image</span></label>
-                            <input type="file" class="form-control" name="image">
+                        <div class="form-group mt-4">
+                            <label for="department"><span class="mb-3 text-capitalize">Avatar</span></label>
+                            <input type="file" class="form-control  mt-2" name="image">
                         </div>
-                        <div class="form-group">
-                            <input type="submit" class="btn btn-success" name="submit" value="add expertise">
+                        <div class="form-group ">
+                            <input type="submit" class="btn btn-success btn-block mt-4" name="submit" value="add expertise">
                         </div>
                     </form>
-                    <div class="container col-lg-12">
-                        <div class="container pre-scrollable mx-0 h-50">
-                            <table class="table table-hover table-striped ">
-                                <thead class="thead-dark  ">
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Image</th>
-                                    <th>control</th>
 
-                                </tr>
-                                </thead>
-                                <?php
-
-                                $fetched = $dbcon->fetchdata("expertise");
-                                foreach ($fetched as $row) {
-                                    $id = $row[0];
-                                    echo "<tr>
-      
-                    
-                     <td>$row[0]</td>
-                     <td>$row[1]</td>
-                     <td><img src=\"photos /$row[2]\"class=\"rounded\"><br></td>
-                      <td><a href='delete_expertise.php?id={$id};'> <button class='btn-sm btn-danger' name='id'>delete</button></a></td>
-                    
-                     
-            </tr>";
-                                }
-                                ?>
-
-                                </tr>
-                            </table>
                         </div>
 
-                        <footer class="ml-auto">
-                            <div class="container-fluid text-center mt-4">
-<span>
-    <hr><p>Theme by mumo| &copf;&nbsp;2019--2022|----all rights reserved</p>
-
-
-</span>
-                            </div>
-                        </footer>
-                    </div>
-
-
-</nav>
+<footer class="ml-auto fixed-bottom bg-info">
+    <p class="text-center">Theme by mumo| &copf;&nbsp;2019--2022|----all rights reserved</p>
+</footer>
 
 
 <?php
@@ -120,22 +93,27 @@ if (isset($_POST["submit"])) {
         'name' => $_POST["department"],
         'photo' => $image_name
     );
-    echo $dbcon->insertdata("expertise", $data);
-    if ($dbcon) {
+    $dbcon->insertdata("expertise", $data);
+
+    if($dbcon) {
         $_SESSION["error message"] = "successfully added";
+
+        $copied = copy($_FILES['image']['tmp_name'], $newname);
+
+        header("location:Manage_expertise.php");
+    }else{
+        $_SESSION["error message"] = "oops something went wrong try again";
     }
 
-//            Process Image
 
-    $copied = copy($_FILES['image']['tmp_name'], $newname);
 
     if (!$copied) {
-//                $msg=base64_encode("Unsuccessful.");
-//                header("Location: index.php?error=$msg");
+//
         $_SESSION["error message"] = "poor image format";
-    }// header("location:public.php");
+    }
     ;
 }
+
 ?>
 </div>
 
