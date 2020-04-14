@@ -23,10 +23,10 @@ if(!isset($_SESSION["username"])){
     <div class="col-md-9 ml-auto details fixed-top"  style="overflow: scroll; height: 100%">
         <ul class="nav">
             <li class="nav-tabs">
-                <a class="nav-link text-capitalize" href="lawyers.news.php">add news</a>
+                <a class="nav-link text-capitalize" href="lawyers.notices.php">add news</a>
             </li>
             <li class="nav-tabs">
-                <a class="nav-link text-capitalize" href="Manage_law_news.php">manage news</a>
+                <a class="nav-link text-capitalize" href="Manage_law_notices.php">manage news</a>
             </li>
 
 
@@ -34,6 +34,7 @@ if(!isset($_SESSION["username"])){
 
 
         <div class="container col-lg-12">
+            <div><?php echo success(); ?></div>
                                     <div class="container">
                                         <table class="table table-hover table-bordered mt-4 ">
                                             <thead class="thead-dark  ">
@@ -59,7 +60,7 @@ if(!isset($_SESSION["username"])){
                                  <td>$row[1]</td>
                                  <td>$row[2]</td>
                                   <td>$row[3]</td>
-                                  <td><a href='delete_law_news.php?id={$id};'> <button class='btn-sm btn-danger' name='id'>delete</button></a></td>
+                                  <td><a href='delete_law_notices.php?id={$id};'> <button class='btn-sm btn-danger' name='id'>delete</button></a></td>
             
                         </tr>";
                                             }

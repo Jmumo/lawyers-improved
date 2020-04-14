@@ -23,16 +23,16 @@ if(!isset($_SESSION["username"])){
                     <div class="col-md-9 ml-auto details fixed-top"  style="overflow: scroll; height: 100%">
                         <ul class="nav">
                             <li class="nav-tabs">
-                                <a class="nav-link text-capitalize" href="lawyers.news.php">add news</a>
+                                <a class="nav-link text-capitalize" href="lawyers.notices.php">add news</a>
                             </li>
                             <li class="nav-tabs">
-                                <a class="nav-link text-capitalize" href="Manage_law_news.php">manage news</a>
+                                <a class="nav-link text-capitalize" href="Manage_law_notices.php">manage news</a>
                             </li>
 
 
                         </ul>
 
-                        <form action="lawyers.news.php" method="post" enctype="multipart/form-data">
+                        <form action="lawyers.notices.php" method="post" enctype="multipart/form-data">
                         <div><?php echo success(); ?></div>
                         <div>
                             <h3 class="page-header text-capitalize mt-4">Post to lawyers notice board</h3>
@@ -48,6 +48,7 @@ if(!isset($_SESSION["username"])){
 
 
                     <?php
+
                     if (isset($_POST["submit"])) {
                         $time = date("D/M/Y");
 
@@ -64,40 +65,12 @@ if(!isset($_SESSION["username"])){
                             $_SESSION["error message"] = "successfully added";
                         }
 
-//                       header("location:index.php");
+//                       header("location:Manage_law_notices.php");
+//                        redirect_to("Manage_law_notices.php");
                     }
                     ?>
                     <div class="container col-lg-12">
-<!--                        <div class="container pre-scrollable mx-0 h-50">-->
-<!--                            <table class="table table-hover table-striped ">-->
-<!--                                <thead class="thead-dark  ">-->
-<!--                                <tr>-->
-<!---->
-<!--                                    <th>ID</th>-->
-<!--                                    <th>Author</th>-->
-<!--                                    <th>Message</th>-->
-<!--                                    <th>Date</th>-->
-<!---->
-<!--                                </tr>-->
-<!--                                </thead>-->
-<!--                                --><?php
-//
-//                                $fetched = $dbcon->fetchdata("notice");
-//                                foreach ($fetched as $row) {
-//                                    echo "<tr>
-//
-//
-//                     <td>$row[0]</td>
-//                     <td>$row[1]</td>
-//                     <td>$row[2]</td>
-//                      <td>$row[3]</td>
-//
-//            </tr>";
-//                                }
-//                                ?>
-<!---->
-<!--                                </tr>-->
-<!--                            </table>-->
+
                         </div>
 
                         <footer class="ml-auto fixed-bottom bg-info">

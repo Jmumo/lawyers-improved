@@ -40,10 +40,16 @@ require_once("includes/redirect.php");
     </div>
     <?php
     if (isset($_POST["login"])) {
+
+        $username = htmlentities($_POST["username"]);
+        $password = htmlentities($_POST["password"]);
+
         $data = array(
-            ':username' => $_POST["username"],
-            ':password' => $_POST["password"],
+            ':username' => $username,
+            ':password' =>$password,
         );
+
+
         $fetched = $dbcon->admin_login("admins", $data);
         foreach ($fetched as $fetched) {
             $_SESSION["username"] = $fetched[1];

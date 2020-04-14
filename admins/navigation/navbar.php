@@ -18,7 +18,7 @@
                                 <a href="admin.news.php" class="text-white text-center nav-link ">Manage news</a>
                             </li>
                             <li class="sidebar-link text-center mb-2">
-                                <a href="lawyers.news.php" class="text-white text-center nav-link">post lawyers news</a>
+                                <a href="lawyers.notices.php" class="text-white text-center nav-link">post lawyers notices</a>
                             </li>
                             <li class="sidebar-link text-center mb-2">
                                 <a href="admins.php" class="text-white text-center nav-link ">Manage admins</a>
