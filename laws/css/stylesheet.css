@@ -89,5 +89,8 @@
     box-shadow: 5px 7px 25px #999;
 }
 #profile{
-   margin-left: 200px;
+   padding-left: 450px;
+}
+.container-fluid{
+
 }

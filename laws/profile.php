@@ -11,9 +11,8 @@ if(!isset($_SESSION["user"])){
 ?>
 <html xmlns="http://www.w3.org/1999/html">
 <head>
-    <link rel="stylesheet" href="../boot/bootstrap-3.3.7/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../boot/bootstrap/css/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="../admins/css/stylesheet.css">
+    <link type="text/css" rel="stylesheet" href="css/stylesheet.css">
 
 </head>
 <body>
@@ -65,11 +64,11 @@ if(!isset($_SESSION["user"])){
 </div>
 
 <div class="container-fluid" id="profile">
-<div class="card" style="width: 600px;">
+<div class="card" style="width: 400px;">
     <div class="card-header">
         <p class="text-capitalize text-center">my profile</p>
         <p class="text-capitalize text-center text-success">you can update profile from this location</p>
-    <img src="profiles/<?php echo $image;?>" class="img-circle" alt="no_image " style="height: 400px; width: 500px">
+    <img src="profiles/<?php echo $image;?>" class="card-img" alt="no_image " style="height: 300px; width: 290px; margin-left: 30px">
     </div>
     <div class="card-body">
         <form method="post" action="profile.php" enctype="multipart/form-data">
@@ -117,7 +116,7 @@ if(!isset($_SESSION["user"])){
             );
              $dbcon->update_profile("sign", $data);
             if ($dbcon) {
-                $_SESSION["error message"] = "successfully posted";
+                $_SESSION["error message"] = "successfully updated";
             }
 //                        move_uploaded_file($_FILES["image"]["tmp_name"],$path);
 

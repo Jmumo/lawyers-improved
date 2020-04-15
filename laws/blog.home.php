@@ -11,11 +11,10 @@ if(!isset($_SESSION["user"])){
     <link rel="stylesheet" type="text/css" href="../admins/css/blog.css">
 </head>
 <body>
-<style>
 
-
-
-</style>
+<div style="margin-left: 94%;font-family: 'Agency FB';font-size: large">
+    <a href="../admins/logout.php">logout</a>
+</div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">LawyersInc</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

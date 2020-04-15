@@ -36,6 +36,9 @@ require_once 'database.php';
             <li class="nav-item">
                 <a class="nav-link" href="expertise.php">Our Expertise</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="client.php">become a client</a>
+            </li>
             <li class="nav-item active">
                 <a class="nav-link" href="news.php">News</a>
             </li>

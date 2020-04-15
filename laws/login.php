@@ -6,26 +6,27 @@ require_once("includes/redirect.php");
 
 <html>
 <head>
-    <script src="../boot/bootstrap/js/jquery-3.3.1.js"></script>
+
     <link rel="stylesheet" href="../boot/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/adminstyles.css">
+    <link rel="stylesheet" type="text/css" href="css/_login.css">
 </head>
 <body>
-<div class="container">
-    <div id="panel" class="panel panel-primary">
-        <div class="panel-heading text-center">
+<div class="main">
+<div class="card border">
+    <div class="">
+        <div class="card-header bg-transparent text-center text-capitalize">
             <h3>login</h3>
         </div>
         <form action="login.php" method="post">
-            <div class="panel-body text-center">
+            <div class="card-body">
                 <!--                <div>--><?php //echo success();?><!--</div>-->
-                <div class="form-group">
-                    <label for="username">username:</label>
+                <div class="form-inline form-group">
+                    <label for="username" class="text-capitalize">username:</label>
                     <input class="form-control" type="text" id="username" name="username" required>
                 </div>
 
-                <div class="form-group">
-                    <label for="password">password:</label>
+                <div class="form-inline  form-group">
+                    <label for="password" class="text-capitalize">password:</label>
                     <input class="form-control" type="password" id="password" name="password" required>
                 </div>
 
@@ -68,6 +69,7 @@ require_once("includes/redirect.php");
     }
 
     ?>
+</div>
 </div>
 </body>
 </html>

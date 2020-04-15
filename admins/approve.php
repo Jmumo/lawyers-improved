@@ -11,8 +11,9 @@ if (isset($_GET["id"])) {
     );
     $exec = $dbcon->approve("sign", $data);
     if ($exec) {
-        $_SESSION["error message"] = "OPERATION UNSUCCESSFUL";
         redirect_to("manageaccess.php");
+        $_SESSION["error message"] = "OPERATION UNSUCCESSFUL";
+
     } else {
         $_SESSION["error message"] = "OPERATION SUCCESSFUL";
         redirect_to("manageaccess.php");

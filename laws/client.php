@@ -25,37 +25,37 @@ require_once("includes/redirect.php");
             <form action="client.php" method="post">
                 <div>
                     <div class="form-group">
-                        <label for="name">first name</label>
+                        <label for="name" class="text-capitalize">first name</label>
                         <input type="text" class="form-control" id="first_name" placeholder="enter first name"
                                name="first_name">
                     </div>
                     <div class="form-group">
-                        <label for="name">second name</label>
+                        <label for="name" class="text-capitalize">second name</label>
                         <input type="text" class="form-control" id="second_name" placeholder="enter second name"
                                name="second_name">
                     </div>
                     <div class="form-group">
-                        <label for="name">occupation</label><br>
+                        <label for="name" class="text-capitalize">occupation</label><br>
                         <span>provide a description of economic activities</span>
                         <input type="text" class="form-control" id="occupation" placeholder="enter your answer"
                                name="occupation">
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
+                        <label for="email" class="text-capitalize">Email</label>
                         <input type="email" class="form-control" id="email" placeholder="enter email" name="email">
                     </div>
                     <div class="form-group">
-                        <label for="email">contact</label>
+                        <label for="email" class="text-capitalize">contact</label>
                         <input type="number" class="form-control" id="contact" placeholder="enter contact"
                                name="contact">
                     </div>
                     <div class="form-group">
-                        <label for="email">address</label>
+                        <label for="email" class="text-capitalize">address</label>
                         <textarea class="form-control" id="address" name="address"
                                   placeholder="enter your address"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="description">description</label><br>
+                        <label for="description" class="text-capitalize">description</label><br>
                         <span>provide a description of the help you need</span>
                         <textarea class="form-control" id="address" name="description" rows="8"
                                   placeholder="problem description"></textarea><br>

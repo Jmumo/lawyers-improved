@@ -1,0 +1,23 @@
+
+li {
+    padding-left: 5px;
+}
+.form-group{
+    width: 300px;
+    padding-left: 30px;
+}
+.panel-footer{
+    padding-left: 30px;
+    width: 300px;
+}
+.card-body{
+    padding-left: 30px;
+}
+
+.main{
+    padding-top:40px;
+}
+.card{
+    width: 400px;
+    margin-left: 450px
+}

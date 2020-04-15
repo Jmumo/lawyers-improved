@@ -3,12 +3,10 @@ require_once 'database.php';
 ?>
 <html>
 <head>
-
-    <!--    <link rel="stylesheet" href="boot/bootstrap-3.3.7/dist/css/bootstrap.css">-->
     <link rel="stylesheet" href="../boot/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../admins/css/stylesheet.css">
 </head>
-<body style="background: #0c5460">
+<body >
 <style>
     .rounded {
         width: 250px;
@@ -37,6 +35,9 @@ require_once 'database.php';
                 <a class="nav-link" href="expertise.php">Our Expertise</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="client.php">become a client</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="news.php">News</a>
             </li>
             <li class="nav-item">
@@ -47,14 +48,14 @@ require_once 'database.php';
     </div>
 </nav>
 <div>
-    <div class="container mt-3" style="background: snow">
+    <div class="container mt-3" style="background: snow;">
         <div class="row mt-1">
             <?php
             $fetched = $dbcon->fetchdata("workers");
             foreach ($fetched as $row) {
                 echo <<<END
-                <div class="card col-lg-3 mt-2 ">
-              <img src="photos/$row[4]" class=" rounded card-img-top"><br>
+                <div class="card col-lg-3 mt-2 ml-3 ">
+              <img src="../admins/photos/$row[4]" class=" rounded card-img-top"><br>
               <div class="card-body bg-dark">
               <div class="card-title text-warning bg-dark">
                     <span style='font-size: 20px ;font-family: sans-serif;color: #c69500'>

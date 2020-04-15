@@ -31,7 +31,7 @@ require_once("includes/redirect.php");
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="expertise.php">Our Expertise</a>
+                <a class="nav-link" href="laws/expertise.php">Our Expertise</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="laws/client.php">become a client</a>

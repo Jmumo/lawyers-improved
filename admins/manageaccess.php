@@ -24,6 +24,7 @@ if(!isset($_SESSION["username"])){
 
                     <div class="container col-lg-12">
                         <div class="mt-5">
+                            <div><?php echo success(); ?></div>
 
                             <table class="table table-hover table-bordered ">
                                 <thead class="thead-dark  ">
@@ -96,31 +97,6 @@ if(!isset($_SESSION["username"])){
             </div>
 
 
-</nav>
-<?php
-if (isset($_POST["submit"])) {
-    $pass = $_POST["password"];
-    $con_pass = $_POST["confirm_password"];
-
-    if ($pass == $con_pass) {
-        $data = array(
-
-            'username' => $_POST["username"],
-            'password' => $_POST["password"],
-        );
-        $dbcon->insertdata("admins", $data);
-
-        if ($dbcon) {
-            $_SESSION["error message"] = "successfully added";
-        } else {
-            $_SESSION["error message"] = "NOT added";
-        }
-        echo $pass . $con_pass;
-    } else {
-        $_SESSION["error message"] = "passwords do not match";
-    }
-}
-?>
 <script src="boot/bootstrap/js/jquery-3.3.1.js"></script>
 <script src="boot/bootstrap/js/popper.js"></script>
 <script src="boot/bootstrap/js/bootstrap.js"></script>

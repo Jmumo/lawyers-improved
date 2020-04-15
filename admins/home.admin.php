@@ -99,15 +99,17 @@ if (isset($_POST["submit"])) {
         'department' => $_POST["department"],
         'photo' => $image_name
     );
-    echo $dbcon->insertdata("workers", $data);
+     $dbcon->insertdata("workers", $data);
+
+    $copied = copy($_FILES['image']['tmp_name'], $newname);
 
     if ($dbcon) {
+        redirect_to("Manage_workers.php");
         $_SESSION["error message"] = "successfully added";
     }
 
-//            Process Image
 
-    $copied = copy($_FILES['image']['tmp_name'], $newname);
+
 
 //    redirect_to("Manage_workers.php");
 

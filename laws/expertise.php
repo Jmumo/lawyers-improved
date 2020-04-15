@@ -4,8 +4,6 @@ require_once("includes/sessions.php");
 ?>
 <html>
 <head>
-
-    <!--    <link rel="stylesheet" href="boot/bootstrap-3.3.7/dist/css/bootstrap.css">-->
     <link rel="stylesheet" href="../admins/boot/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../admins/css/stylesheet.css">
 </head>
@@ -29,14 +27,17 @@ require_once("includes/sessions.php");
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item  ">
-                <a class="nav-link" href="index.php">Home</a>
+                <a class="nav-link" href="../index.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="workers.php">Our People <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="workers.php">Our People</a>
             </li>
 
             <li class="nav-item active">
                 <a class="nav-link" href="expertise.php">Our Expertise</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="client.php">become a client</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="news.php">News</a>
@@ -51,13 +52,13 @@ require_once("includes/sessions.php");
 <div>
     <div class="container">
         <h3 style="margin-left: 40%;">our practise areas</h3>
-        <div class="row mt-4">
+        <div class="row mt-4 ">
             <?php
             $fetched = $dbcon->fetchdata("expertise");
             foreach ($fetched as $row) {
                 echo <<<END
-                <div class="img-thumbnail col-lg-4">
-<img  src="photos/$row[2]" class="rounded ml-3"><br>
+                <div class="img-thumbnail col-lg-4 ml-4">
+<img  src="../admins/photos/$row[2]" class="rounded ml-3"><br>
 <span style='font-size: 20px ;font-family: Algerian'>&nbsp;&nbsp;&nbsp;&nbsp;$row[1]<br></span>
 
                 </div>
