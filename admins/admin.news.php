@@ -3,7 +3,7 @@ require_once 'database.php';
 require_once("includes/sessions.php");
 require_once("includes/redirect.php");
 if(!isset($_SESSION["username"])){
-    redirect_to("login.php");
+    redirect_to("adminlogin.php");
 }
 ?>
 <html>

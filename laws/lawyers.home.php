@@ -59,11 +59,12 @@ $lawyer = $_SESSION["user"];
 <!--            </form>-->
         </div>
     </nav>
+    <?php include 'navigation/Tabs_navigation.php';?>
 </div>
-<div class="container pre-scrollable mx-0">
-    <table class="table table-striped  table-hover">
+<div class="container" style="margin-left: 3%;">
+    <table class="table table-bordered  table-hover">
         <thead class="thead-dark ">
-        <tr>
+        <tr class="border">
             <th>#</th>
             <th>ID</th>
             <th>Name</th>
@@ -74,6 +75,7 @@ $lawyer = $_SESSION["user"];
             <th>Description</th>
             <th>lawyer</th>
             <th>sign</th>
+            <th>archive case</th>
         </tr>
         </thead>
         <?php
@@ -82,18 +84,17 @@ $lawyer = $_SESSION["user"];
             ':username' => '%' . $lawyer . '%',
         );
         $fetched = $dbcon->fetch_case("cases", $data);
-        //        $fetched = $dbcon->fetchdata("cases");
+
         foreach ($fetched as $row) {
             $id = $row[0];
 
             ?>
-            <tr>
+            <tr class="">
 
                 <td>
                     <a href="mark.php?id=<?php echo $id; ?>">
-                        <button type="submit"  class="btn btn-primary" >
+                        <button type="submit" class="btn btn-primary" name="submit" >
                             mark as read
-
                         </button>
                     </a>
                 </td>
@@ -102,7 +103,7 @@ $lawyer = $_SESSION["user"];
                 <td><?php echo $row[3] ?></td>
                 <td><?php echo $row[4] ?></td>
                 <td><?php echo $row[5] ?></td>
-                <td><?php $row[6] ?></td><br>
+                <td><?php echo $row[6] ?></td><br>
                 <td><?php
                      if (strlen($row[7]) > 20) {
                          $row[7] = substr($row[7], 0, 20) . "....";
@@ -113,13 +114,23 @@ $lawyer = $_SESSION["user"];
                     <a href="lawread.php?id=<?php echo $id; ?>">read more</a>
                 </td>
                 <td><?php echo $row[8] ?></td>
-                <td><?php
+               <?php
                     if($row[9]=="true"){
-                        echo"&#9989";
+//                        echo"<span class='bg-success'></span>";
+                        echo "<td class='bg-success'>&#9989</td>";
                     }else{
-                        echo "&#10062";
+//                        echo "<span class='bg-warning'></span>";
+                        echo "<td class='bg-warning'>&#10062</td>";
                     }
-                    ?></td>
+                    ?>
+                <td>
+                    <a href="archive_case.php?value=<?php echo $id; ?>">
+                        <button type="submit"  class="btn btn-sm btn-primary text-capitalize" >
+                            archive the case
+
+                        </button>
+                    </a>
+                </td>
             </tr>
         <?php } ?>
 
@@ -128,26 +139,8 @@ $lawyer = $_SESSION["user"];
     </table>
 </div>
 
-</div>
 
-<div class="row ">
-    <h3>
-        <hr style="font-weight: bold">
-    </h3>
-</div>
-<div class="btn-success">
-    <hr>
-    <hr>
-</div>
-<div class="container mx-0 h-50">
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <button type="button" class="btn btn-primary ml-3" data-toggle="modal" data-target="#exampleModalLong">
-                create schedule
-            </button>
-        </li>
-    </ul>
-    <div class=" container pre-scrollable">
+<div class="container mx-0 h-100">
         <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
              aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -182,86 +175,29 @@ $lawyer = $_SESSION["user"];
                             </div>
 
                         </form>
-<!--                        --><?php
-//                        if (isset($_POST["create"])) {
-//                            $lawyer=$_SESSION["user"];
-//                            $data = array(
-//                                'date' => $_POST["date"],
-//                                'practise' => $_POST["subject"],
-//                                'matter' => $_POST["matter"],
-//                                'lawyer' => $lawyer
-//
-//
-//                            );
-//                            echo $dbcon->insertdata("schedule", $data);
-//                        }
-//
-//                        ?>
+                       <?php
+                        if (isset($_POST["create"])) {
+                            $lawyer=$_SESSION["user"];
+                            $data = array(
+                                'date' => $_POST["date"],
+                               'practise' => $_POST["subject"],
+                                'matter' => $_POST["matter"],
+                               'lawyer' => $lawyer
+
+
+                            );
+                            echo $dbcon->insertdata("schedule", $data);}
+
+                      ?>
 
                     </div>
                 </div>
             </div>
-        </div class="ml-0">
-        <table class="table table-striped  table-hover">
-            <thead class="thead-dark">
-            <tr>
 
-                <th>ID</th>
-                <th>open date</th>
-                <th>subject</th>
-                <th>matter</th>
-                <th>lawyer</th>
-                <th>Days remaining</th>
-                <th>manage</th>
-            </tr>
-            </thead>
-            <?php
-            $lawyer = $_SESSION["user"];
-            $data = array(
-                ':username' => '%' . $lawyer . '%',
-            );
-            $fetched = $dbcon->fetch_case("schedule",$data);
-            foreach ($fetched as $row) {
-                $time1 = strtotime($row[1]);
-                @$time2 = strtotime(date(m . d . y));
-                $diffrence = $time1 - $time2;
-//    echo $diffrence;
-                $final = floor($diffrence / (60 * 60 * 24));
-//                $row[0]=$id;
-            ?>
-
-                <tr>
-</td>
-                     <td><?php echo $row[0]?></td>
-                    <td><?php echo $row[1]?></td>
-                     <td><?php echo $row[2] ?></td>
-                     <td><?php echo $row[3]?></td>
-                     <td><?php echo $row[4]?></td>
-                      <td style="color: #0056b3"><?php if($final==0){
-                          echo"today";
-                          }elseif ($final < 0)
-                          {echo"closed";
-                      }else{ echo $final."days";}
-                      ?></td>
-                    <td><a href="deleteschedule.php?id=<?php echo $row[0]; ?>"><button class="btn-info">delete</button></a></td>
-                    
-            </tr>
-           <?php }?>
-
-
-            </tr>
-        </table>
-    </div>
 </div>
 </div>
 <script>
-    const getName = document.getElementById('prompt');
-    getName.addEventListener("click", pickName);
 
-    function pickName() {
-        let lawyerName = prompt("Lawyer Name")
-        console.log(lawyerName)
-    }
 </script>
 <script src="../boot/bootstrap/js/jquery-3.3.1.js"></script>
 <script src="../boot/bootstrap/js/popper.js"></script>

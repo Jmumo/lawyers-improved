@@ -167,7 +167,7 @@
     function fetch_case($table, $post)
     {
         try {
-            $stmt = $this->connection->prepare("select * from $table where lawyer like :username;");
+            $stmt = $this->connection->prepare("select * from $table where lawyer like :username and status='active';");
             $stmt->execute($post);
             $result = $stmt->fetchall();
             return $result;
@@ -175,6 +175,28 @@
             echo $e->getMessage();
         }
     }
+     function fetch_archives($table, $post)
+     {
+         try {
+             $stmt = $this->connection->prepare("select * from $table where lawyer like :username and status='inactive';");
+             $stmt->execute($post);
+             $result = $stmt->fetchall();
+             return $result;
+         } catch (Exception $e) {
+             echo $e->getMessage();
+         }
+     }
+     function fetch_schedule($table, $post)
+     {
+         try {
+             $stmt = $this->connection->prepare("select * from $table where lawyer like :username ;");
+             $stmt->execute($post);
+             $result = $stmt->fetchall();
+             return $result;
+         } catch (Exception $e) {
+             echo $e->getMessage();
+         }
+     }
 
     function fetch_new($table, $post)
     {
@@ -255,6 +277,16 @@
             echo $e->getMessage();
         }
     }
+     function archives($table, $post)
+     {
+         try {
+             $stmt = $this->connection->prepare("update $table set status = :status where id=:id");
+             $stmt->execute($post);
+
+         } catch (Exception $e) {
+             echo $e->getMessage();
+         }
+     }
 
     function admin_read($table, $data)
     {

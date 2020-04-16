@@ -91,6 +91,6 @@
 #profile{
    padding-left: 450px;
 }
-.container-fluid{
-
+.card-image{
+    border-radius: 30px;
 }

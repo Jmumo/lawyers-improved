@@ -4,7 +4,7 @@ function message()
 {
 
     if (isset($_SESSION["error message"])) {
-        $output = "<div class='alert alert-danger'>";
+        $output = " <div class='alert alert-danger'>";
         $output .= htmlentities($_SESSION["error message"]);
         $output . "</div>";
         $_SESSION["error message"] = null;
@@ -22,4 +22,5 @@ function success()
         $_SESSION["error message"] = null;
         return $output;
     }
+
 }

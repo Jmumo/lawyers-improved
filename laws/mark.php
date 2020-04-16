@@ -3,12 +3,13 @@ require_once 'database.php';
 require_once("includes/sessions.php");
 require_once("includes/redirect.php");
 
-if(isset($_GET["id"])){
+if(isset($_GET['id'])){
 //    $true="true";
     $data = array(
         'id' => $_GET["id"],
         'sign' => "true",
     );
+
 
     $exec = $dbcon->insert_sign("cases", $data);
 

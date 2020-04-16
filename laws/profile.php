@@ -63,14 +63,15 @@ if(!isset($_SESSION["user"])){
     </nav>
 </div>
 
-<div class="container-fluid" id="profile">
+<div class="container-fluid " id="profile">
 <div class="card" style="width: 400px;">
     <div class="card-header">
         <p class="text-capitalize text-center">my profile</p>
         <p class="text-capitalize text-center text-success">you can update profile from this location</p>
-    <img src="profiles/<?php echo $image;?>" class="card-img" alt="no_image " style="height: 300px; width: 290px; margin-left: 30px">
+    <img src="profiles/<?php echo $image;?>" class="card-img" alt="no_image " style="height: 260px; width: 250px; margin-left: 30px;border-radius: 180px">
     </div>
     <div class="card-body">
+
         <form method="post" action="profile.php" enctype="multipart/form-data">
 
             <div class="form-group">
