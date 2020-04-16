@@ -61,7 +61,7 @@ require_once 'database.php';
                     echo " <div><tr>
                    
                      <td><span style='font-size: 20px ;font-family:sans-serif'>&nbsp;&nbsp;&nbsp;&nbsp;$row[1]<br></span></td>
-                     <td><img src=\"photos/$row[2]\" class=\"rounded\"><br></td>
+                     <td><img src=\"../admins/photos/$row[2]\" class=\"rounded\"><br></td>
                      
             </tr>";
                 }
